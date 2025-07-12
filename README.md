@@ -1,10 +1,10 @@
-# Y-Router
+# y-router
 
 A Cloudflare Worker that translates between Anthropic's Claude API and OpenAI-compatible APIs, enabling you to use Claude Code with OpenRouter and other OpenAI-compatible providers.
 
 ## Quick Usage
 
-After deploying Y-Router, add these lines to your shell configuration file (`~/.bashrc` or `~/.zshrc`):
+After deploying y-router, add these lines to your shell configuration file (`~/.bashrc` or `~/.zshrc`):
 
 ```bash
 export ANTHROPIC_BASE_URL="https://cc.yovy.app"
@@ -17,11 +17,11 @@ Or run Claude Code with the environment variables directly:
 ANTHROPIC_BASE_URL="https://cc.yovy.app" ANTHROPIC_API_KEY="your-openrouter-api-key" claude
 ```
 
-That's it! Claude Code will now use OpenRouter's models through Y-Router.
+That's it! Claude Code will now use OpenRouter's models through y-router.
 
 ## What it does
 
-Y-Router acts as a translation layer that:
+y-router acts as a translation layer that:
 - Accepts requests in Anthropic's API format (`/v1/messages`)
 - Converts them to OpenAI's chat completions format
 - Forwards to OpenRouter (or any OpenAI-compatible API)
@@ -31,9 +31,9 @@ Y-Router acts as a translation layer that:
 ## Perfect for Claude Code + OpenRouter
 
 This allows you to use [Claude Code](https://claude.ai/code) with OpenRouter's vast selection of models by:
-1. Pointing Claude Code to your Y-Router deployment
+1. Pointing Claude Code to your y-router deployment
 2. Using your OpenRouter API key
-3. Accessing any model available on OpenRouter through Claude Code's interface
+3. Accessing Claude models available on OpenRouter through Claude Code's interface
 
 ## Setup
 
@@ -54,7 +54,7 @@ This allows you to use [Claude Code](https://claude.ai/code) with OpenRouter's v
 3. **Configure Claude Code:**
    - Set API endpoint to your deployed Worker URL
    - Use your OpenRouter API key
-   - Enjoy access to all OpenRouter models!
+   - Enjoy access to Claude models via OpenRouter!
 
 ## Environment Variables
 
@@ -84,7 +84,7 @@ npm run deploy # Deploy to Cloudflare Workers
 
 ## Thanks
 
-Special thanks to these projects that inspired Y-Router:
+Special thanks to these projects that inspired y-router:
 - [claude-code-router](https://github.com/musistudio/claude-code-router)
 - [claude-code-proxy](https://github.com/kiyo-e/claude-code-proxy)
 
