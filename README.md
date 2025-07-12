@@ -19,6 +19,21 @@ ANTHROPIC_BASE_URL="https://cc.yovy.app" ANTHROPIC_API_KEY="your-openrouter-api-
 
 That's it! Claude Code will now use OpenRouter's models through y-router.
 
+## GitHub Actions Usage
+
+To use Claude Code in GitHub Actions workflows, add the environment variable to your workflow:
+
+```yaml
+env:
+  ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+```
+
+Set `ANTHROPIC_BASE_URL` to `https://cc.yovy.app` in your repository secrets.
+
+Example workflows:
+- [Interactive Claude Code](.github/workflows/claude.yml) - Responds to @claude mentions
+- [Automated Code Review](.github/workflows/claude-code-review.yml) - Automatic PR reviews
+
 ## What it does
 
 y-router acts as a translation layer that:
