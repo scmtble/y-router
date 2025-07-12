@@ -177,6 +177,8 @@ export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
             <a href="https://github.com/luohy15/y-router" target="_blank">GitHub</a>
             <a href="https://openrouter.ai" target="_blank">OpenRouter</a>
             <a href="https://claude.ai/code" target="_blank">Claude Code</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
         </div>
     </div>
 </body>

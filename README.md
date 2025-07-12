@@ -69,8 +69,8 @@ curl -X POST https://cc.yovy.app/v1/messages \
   -H "Content-Type: application/json" \
   -H "x-api-key: your-openrouter-key" \
   -d '{
-    "model": "anthropic/claude-3-sonnet",
-    "messages": [{"role": "user", "content": "Hello!"}],
+    "model": "claude-sonnet-4-20250514",
+    "messages": [{"role": "user", "content": "Hello, Claude"}],
     "max_tokens": 100
   }'
 ```
@@ -87,6 +87,20 @@ npm run deploy # Deploy to Cloudflare Workers
 Special thanks to these projects that inspired y-router:
 - [claude-code-router](https://github.com/musistudio/claude-code-router)
 - [claude-code-proxy](https://github.com/kiyo-e/claude-code-proxy)
+
+## Disclaimer
+
+**Important Legal Notice:**
+
+- **Third-party Tool**: y-router is an independent, unofficial tool and is not affiliated with, endorsed by, or supported by Anthropic PBC, OpenAI, or OpenRouter
+- **Service Terms**: Users are responsible for ensuring compliance with the Terms of Service of all involved parties (Anthropic, OpenRouter, and any other API providers)
+- **API Key Responsibility**: Users must use their own valid API keys and are solely responsible for any usage, costs, or violations associated with those keys
+- **No Warranty**: This software is provided "as is" without any warranties. The authors are not responsible for any damages, service interruptions, or legal issues arising from its use
+- **Data Privacy**: While y-router does not intentionally store user data, users should review the privacy policies of all connected services
+- **Compliance**: Users are responsible for ensuring their use complies with applicable laws and regulations in their jurisdiction
+- **Commercial Use**: Any commercial use should be carefully evaluated against relevant terms of service and licensing requirements
+
+**Use at your own risk and discretion.**
 
 ## License
 
