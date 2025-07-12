@@ -169,7 +169,7 @@ export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
             </div>
 
             <div class="note">
-                <p><strong>For data security:</strong> Consider <a href="https://github.com/luohy15/y-router?tab=readme-ov-file#setup" target="_blank">self-deploying y-router</a> to Cloudflare Workers instead of using this shared instance.</p>
+                <p><strong>For data privacy:</strong> Consider <a href="https://github.com/luohy15/y-router?tab=readme-ov-file#setup" target="_blank">self-deploying y-router</a> to Cloudflare Workers instead of using this shared instance.</p>
             </div>
         </div>
 
