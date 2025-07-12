@@ -82,6 +82,12 @@ npm run dev    # Start development server
 npm run deploy # Deploy to Cloudflare Workers
 ```
 
+## Thanks
+
+Special thanks to these projects that inspired Y-Router:
+- [claude-code-router](https://github.com/musistudio/claude-code-router)
+- [claude-code-proxy](https://github.com/kiyo-e/claude-code-proxy)
+
 ## License
 
 MIT
