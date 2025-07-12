@@ -4,17 +4,25 @@ A Cloudflare Worker that translates between Anthropic's Claude API and OpenAI-co
 
 ## Quick Usage
 
-After deploying y-router, add these lines to your shell configuration file (`~/.bashrc` or `~/.zshrc`):
+**Step 1:** Install Claude Code
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+**Step 2:** Get OpenRouter API key from [openrouter.ai](https://openrouter.ai)
+
+**Step 3:** Configure environment variables in your shell config (`~/.bashrc` or `~/.zshrc`):
 
 ```bash
+# For quick testing, you can use our shared instance. For daily use, deploy your own instance for better reliability.
 export ANTHROPIC_BASE_URL="https://cc.yovy.app"
 export ANTHROPIC_API_KEY="your-openrouter-api-key"
 ```
 
-Or run Claude Code with the environment variables directly:
-
+**Step 4:** Reload your shell and run Claude Code:
 ```bash
-ANTHROPIC_BASE_URL="https://cc.yovy.app" ANTHROPIC_API_KEY="your-openrouter-api-key" claude
+source ~/.bashrc
+claude
 ```
 
 That's it! Claude Code will now use OpenRouter's models through y-router.
