@@ -1,9 +1,12 @@
+import { faviconDataUrl } from './faviconServer';
+
 export const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Use Claude Code with OpenRouter</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="${faviconDataUrl}">
     <style>
         * {
             margin: 0;
@@ -177,6 +180,8 @@ export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
             <a href="https://github.com/luohy15/y-router" target="_blank">GitHub</a>
             <a href="https://openrouter.ai" target="_blank">OpenRouter</a>
             <a href="https://claude.ai/code" target="_blank">Claude Code</a>
+            <a href="https://yovy.app" target="_blank">Yovy Chat</a>
+            <br>
             <a href="/terms">Terms</a>
             <a href="/privacy">Privacy</a>
         </div>

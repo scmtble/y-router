@@ -1,9 +1,12 @@
+import { faviconDataUrl } from './faviconServer';
+
 export const privacyHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - y-router</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="${faviconDataUrl}">
     <style>
         * {
             margin: 0;
