@@ -167,6 +167,10 @@ export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
                 <h2>🎉 Ready to go!</h2>
                 <p>Run <code>claude</code> in your terminal and enjoy access to Claude models</p>
             </div>
+
+            <div class="note">
+                <p><strong>For data security:</strong> Consider <a href="https://github.com/luohy15/y-router?tab=readme-ov-file#setup" target="_blank">self-deploying y-router</a> to Cloudflare Workers instead of using this shared instance.</p>
+            </div>
         </div>
 
         <div class="footer-links">
