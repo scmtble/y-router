@@ -19,6 +19,12 @@ export ANTHROPIC_BASE_URL="https://cc.yovy.app"
 export ANTHROPIC_API_KEY="your-openrouter-api-key"
 ```
 
+**Optional:** Configure specific models (browse models at [openrouter.ai/models](https://openrouter.ai/models)):
+```bash
+export ANTHROPIC_MODEL="deepseek/deepseek-chat-v3-0324"
+export ANTHROPIC_SMALL_FAST_MODEL="google/gemini-2.5-flash"
+```
+
 **Step 4:** Reload your shell and run Claude Code:
 ```bash
 source ~/.bashrc

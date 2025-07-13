@@ -160,8 +160,11 @@ export const indexHtml = `<!DOCTYPE html>
             <div class="step">
                 <h2><span class="step-number">3</span>Configure</h2>
                 <p>Add these to your shell config (<code>~/.bashrc</code> or <code>~/.zshrc</code>):</p>
-                <div class="code-block">export ANTHROPIC_BASE_URL="https://cc.yovy.app"
+                <div class="code-block">export ANTHROPIC_BASE_URL="https://cc.yovy.app"<br>
 export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
+                <p><strong>Optional:</strong> Configure specific models (browse at <a href="https://openrouter.ai/models" target="_blank">openrouter.ai/models</a>):</p>
+                <div class="code-block">export ANTHROPIC_MODEL="deepseek/deepseek-chat-v3-0324"<br>
+export ANTHROPIC_SMALL_FAST_MODEL="google/gemini-2.5-flash"</div>
                 <p>Then reload your shell:</p>
                 <div class="code-block">source ~/.bashrc</div>
             </div>

@@ -195,20 +195,25 @@ export function formatAnthropicToOpenAI(body: MessageCreateParamsBase): any {
     : [];
 
   const systemMessages = Array.isArray(system)
-    ? system.map((item) => ({
-        role: "system",
-        content: [{
+    ? system.map((item) => {
+        const content: any = {
           type: "text",
-          text: item.text,
-          cache_control: {"type": "ephemeral"}
-        }]
-      }))
+          text: item.text
+        };
+        if (model.includes('claude')) {
+          content.cache_control = {"type": "ephemeral"};
+        }
+        return {
+          role: "system",
+          content: [content]
+        };
+      })
     : [{
         role: "system",
         content: [{
           type: "text",
           text: system,
-          cache_control: {"type": "ephemeral"}
+          ...(model.includes('claude') ? { cache_control: {"type": "ephemeral"} } : {})
         }]
       }];
 
