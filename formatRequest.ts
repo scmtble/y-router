@@ -99,6 +99,11 @@ function validateOpenAIToolCalls(messages: any[]): any[] {
 }
 
 export function mapModel(anthropicModel: string): string {
+  // If model already contains '/', it's an OpenRouter model ID - return as-is
+  if (anthropicModel.includes('/')) {
+    return anthropicModel;
+  }
+  
   if (anthropicModel.includes('haiku')) {
     return 'anthropic/claude-3.5-haiku';
   } else if (anthropicModel.includes('sonnet')) {
