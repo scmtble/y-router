@@ -46,6 +46,18 @@ claude
 
 That's it! Claude Code will now use OpenRouter's models through y-router.
 
+### Multiple Configurations
+
+To maintain multiple Claude Code configurations for different providers or models, use shell aliases:
+
+```bash
+# Example aliases for different configurations
+alias c1='ANTHROPIC_BASE_URL="https://cc.yovy.app" ANTHROPIC_API_KEY="your-openrouter-key" ANTHROPIC_MODEL="anthropic/claude-sonnet-4" ANTHROPIC_SMALL_FAST_MODEL="anthropic/claude-3.5-haiku" claude'
+alias c2='ANTHROPIC_BASE_URL="https://api.moonshot.ai/anthropic/" ANTHROPIC_API_KEY="your-moonshot-key" ANTHROPIC_MODEL="kimi-k2-0711-preview" ANTHROPIC_SMALL_FAST_MODEL="moonshot-v1-8k" claude'
+```
+
+Add these aliases to your shell config file (`~/.bashrc` or `~/.zshrc`), then use `c1` or `c2` to switch between configurations.
+
 ## GitHub Actions Usage
 
 To use Claude Code in GitHub Actions workflows, add the environment variable to your workflow:
