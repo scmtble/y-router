@@ -98,17 +98,26 @@ case "$provider_choice" in
             1)
                 default_base_url="https://api.moonshot.ai/anthropic/"
                 api_key_url="https://platform.moonshot.ai/console/api-keys"
+                pricing_url="https://platform.moonshot.ai/docs/pricing/limits"
                 ;;
             2)
                 default_base_url="https://api.moonshot.cn/anthropic/"
                 api_key_url="https://platform.moonshot.cn/console/api-keys"
+                pricing_url="https://platform.moonshot.cn/docs/pricing/limits"
                 ;;
             *)
                 echo "⚠️  Invalid choice. Using Global (.ai) endpoint as default."
                 default_base_url="https://api.moonshot.ai/anthropic/"
                 api_key_url="https://platform.moonshot.ai/console/api-keys"
+                pricing_url="https://platform.moonshot.ai/docs/pricing/limits"
                 ;;
         esac
+        
+        echo ""
+        echo "⚠️  Important: Moonshot requires account credit before use"
+        echo "   You must add funds to your account first, otherwise you'll get rate limit errors"
+        echo "   Pricing info: $pricing_url"
+        echo ""
         
         default_model_main="kimi-k2-0711-preview"
         default_model_small="moonshot-v1-8k"
