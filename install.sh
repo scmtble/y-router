@@ -1,4 +1,4 @@
-export const installSh = `#!/bin/bash
+#!/bin/bash
 
 set -e
 
@@ -13,7 +13,7 @@ install_nodejs() {
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
             
             echo "🔄 Loading nvm environment..."
-            \\. "$HOME/.nvm/nvm.sh"
+            \. "$HOME/.nvm/nvm.sh"
             
             echo "📦 Downloading and installing Node.js v22..."
             nvm install 22
@@ -74,7 +74,7 @@ echo "1) OpenRouter (default)"
 echo "2) Moonshot"
 echo ""
 read -p "Enter your choice [1]: " provider_choice
-provider_choice=\${provider_choice:-1}
+provider_choice=${provider_choice:-1}
 echo ""
 
 case "$provider_choice" in
@@ -92,7 +92,7 @@ case "$provider_choice" in
         echo "2) China (api.moonshot.cn)"
         echo ""
         read -p "Enter your choice [1]: " moonshot_endpoint_choice
-        moonshot_endpoint_choice=\${moonshot_endpoint_choice:-1}
+        moonshot_endpoint_choice=${moonshot_endpoint_choice:-1}
         
         case "$moonshot_endpoint_choice" in
             1)
@@ -125,14 +125,14 @@ echo ""
 
 read -p "Base URL [$default_base_url]: " base_url
 echo ""
-base_url=\${base_url:-$default_base_url}
+base_url=${base_url:-$default_base_url}
 
 echo "🔑 Please enter your $provider API key:"
 echo "   You can get your API key from: $api_key_url"
 echo "   Note: The input is hidden for security. Please paste your API key directly."
 echo ""
 read -s api_key
-echo "✅ API key received (\${#api_key} characters)"
+echo "✅ API key received (${#api_key} characters)"
 echo ""
 
 if [ -z "$api_key" ]; then
@@ -141,10 +141,10 @@ if [ -z "$api_key" ]; then
 fi
 
 read -p "Main model [$default_model_main]: " model_main
-model_main=\${model_main:-$default_model_main}
+model_main=${model_main:-$default_model_main}
 
 read -p "Small/fast model [$default_model_small]: " model_small
-model_small=\${model_small:-$default_model_small}
+model_small=${model_small:-$default_model_small}
 
 # Detect current shell and determine rc file
 current_shell=$(basename "$SHELL")
@@ -169,14 +169,14 @@ echo "📝 Configuring environment variables in $rc_file..."
 
 # Create backup if file exists
 if [ -f "$rc_file" ]; then
-    cp "$rc_file" "\${rc_file}.backup.$(date +%Y%m%d_%H%M%S)"
+    cp "$rc_file" "${rc_file}.backup.$(date +%Y%m%d_%H%M%S)"
 fi
 
 # Remove existing Claude Code environment variables
 if [ -f "$rc_file" ]; then
     # Use a temporary file to store content without Claude Code variables
-    grep -v "^# Claude Code environment variables\\|^export ANTHROPIC_BASE_URL\\|^export ANTHROPIC_API_KEY\\|^export ANTHROPIC_MODEL\\|^export ANTHROPIC_SMALL_FAST_MODEL" "$rc_file" > "\${rc_file}.tmp" || true
-    mv "\${rc_file}.tmp" "$rc_file"
+    grep -v "^# Claude Code environment variables\|^export ANTHROPIC_BASE_URL\|^export ANTHROPIC_API_KEY\|^export ANTHROPIC_MODEL\|^export ANTHROPIC_SMALL_FAST_MODEL" "$rc_file" > "${rc_file}.tmp" || true
+    mv "${rc_file}.tmp" "$rc_file"
 fi
 
 # Add new environment variables
@@ -196,4 +196,3 @@ echo "   source $rc_file"
 echo ""
 echo "🚀 Then you can start using Claude Code with:"
 echo "   claude"
-`;
