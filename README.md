@@ -4,6 +4,19 @@ A Cloudflare Worker that translates between Anthropic's Claude API and OpenAI-co
 
 ## Quick Usage
 
+### One-line Install (Recommended)
+```bash
+bash -c "$(curl -fsSL https://cc.yovy.app/install.sh)"
+```
+
+This script will automatically:
+- Install Node.js (if needed)
+- Install Claude Code
+- Configure your environment with OpenRouter or Moonshot
+- Set up all necessary environment variables
+
+### Manual Setup
+
 **Step 1:** Install Claude Code
 ```bash
 npm install -g @anthropic-ai/claude-code
@@ -21,7 +34,7 @@ export ANTHROPIC_API_KEY="your-openrouter-api-key"
 
 **Optional:** Configure specific models (browse models at [openrouter.ai/models](https://openrouter.ai/models)):
 ```bash
-export ANTHROPIC_MODEL="deepseek/deepseek-chat-v3-0324"
+export ANTHROPIC_MODEL="moonshotai/kimi-k2"
 export ANTHROPIC_SMALL_FAST_MODEL="google/gemini-2.5-flash"
 ```
 

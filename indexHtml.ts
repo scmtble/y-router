@@ -93,6 +93,35 @@ export const indexHtml = `<!DOCTYPE html>
             margin: 15px 0;
             overflow-x: auto;
             font-size: 0.9em;
+            position: relative;
+        }
+
+        .code-block-wrapper {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+            background: #2980b9;
+        }
+
+        .copy-button.copied {
+            background: #27ae60;
         }
 
         .success {
@@ -142,31 +171,52 @@ export const indexHtml = `<!DOCTYPE html>
     <div class="container">
         <div class="header">
             <h1>🚀 Claude Code + OpenRouter</h1>
-            <p>3 steps to get started</p>
+            <p>One-line install or 3 steps to get started</p>
         </div>
 
         <div class="content">
             <div class="step">
-                <h2><span class="step-number">1</span>Install Claude Code</h2>
-                <div class="code-block">npm install -g @anthropic-ai/claude-code</div>
+                <h2><span class="step-number">⚡</span>One-line Install (Recommended)</h2>
+                <div class="code-block-wrapper">
+                    <div class="code-block">bash -c "$(curl -fsSL https://cc.yovy.app/install.sh)"</div>
+                    <button class="copy-button" onclick="copyToClipboard(this, 'bash -c &quot;$(curl -fsSL https://cc.yovy.app/install.sh)&quot;')">Copy</button>
+                </div>
+                <div class="note">This script will automatically install Node.js, Claude Code, and configure your environment with OpenRouter or Moonshot</div>
+            </div>
+
+            <div class="step">
+                <h2><span class="step-number">1</span>Manual: Install Claude Code</h2>
+                <div class="code-block-wrapper">
+                    <div class="code-block">npm install -g @anthropic-ai/claude-code</div>
+                    <button class="copy-button" onclick="copyToClipboard(this, 'npm install -g @anthropic-ai/claude-code')">Copy</button>
+                </div>
                 <div class="note">Or download from <a href="https://claude.ai/code" target="_blank">claude.ai/code</a></div>
             </div>
 
             <div class="step">
-                <h2><span class="step-number">2</span>Get OpenRouter API Key</h2>
+                <h2><span class="step-number">2</span>Manual: Get OpenRouter API Key</h2>
                 <p>Sign up at <a href="https://openrouter.ai" target="_blank">openrouter.ai</a> and get your API key</p>
             </div>
 
             <div class="step">
-                <h2><span class="step-number">3</span>Configure</h2>
+                <h2><span class="step-number">3</span>Manual: Configure</h2>
                 <p>Add these to your shell config (<code>~/.bashrc</code> or <code>~/.zshrc</code>):</p>
-                <div class="code-block">export ANTHROPIC_BASE_URL="https://cc.yovy.app"<br>
+                <div class="code-block-wrapper">
+                    <div class="code-block">export ANTHROPIC_BASE_URL="https://cc.yovy.app"<br>
 export ANTHROPIC_API_KEY="your-openrouter-api-key"</div>
+                    <button class="copy-button" onclick="copyToClipboard(this, 'export ANTHROPIC_BASE_URL=&quot;https://cc.yovy.app&quot;\\nexport ANTHROPIC_API_KEY=&quot;your-openrouter-api-key&quot;')">Copy</button>
+                </div>
                 <p><strong>Optional:</strong> Configure specific models (browse at <a href="https://openrouter.ai/models" target="_blank">openrouter.ai/models</a>):</p>
-                <div class="code-block">export ANTHROPIC_MODEL="deepseek/deepseek-chat-v3-0324"<br>
+                <div class="code-block-wrapper">
+                    <div class="code-block">export ANTHROPIC_MODEL="moonshotai/kimi-k2"<br>
 export ANTHROPIC_SMALL_FAST_MODEL="google/gemini-2.5-flash"</div>
+                    <button class="copy-button" onclick="copyToClipboard(this, 'export ANTHROPIC_MODEL=&quot;moonshotai/kimi-k2&quot;\\nexport ANTHROPIC_SMALL_FAST_MODEL=&quot;google/gemini-2.5-flash&quot;')">Copy</button>
+                </div>
                 <p>Then reload your shell:</p>
-                <div class="code-block">source ~/.bashrc</div>
+                <div class="code-block-wrapper">
+                    <div class="code-block">source ~/.bashrc</div>
+                    <button class="copy-button" onclick="copyToClipboard(this, 'source ~/.bashrc')">Copy</button>
+                </div>
             </div>
 
             <div class="success">
@@ -189,5 +239,38 @@ export ANTHROPIC_SMALL_FAST_MODEL="google/gemini-2.5-flash"</div>
             <a href="/privacy">Privacy</a>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(button, text) {
+            navigator.clipboard.writeText(text).then(function() {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(function() {
+                        button.textContent = 'Copy';
+                        button.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+    </script>
 </body>
 </html>`;
