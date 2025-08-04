@@ -37,9 +37,12 @@ jobs:
 
       - name: Set origin to corresponding event clone URL
         run: |
-          EVENT_CLONE_URL="${{ github.event.pull_request_review_comment.pull_request.head.repo.clone_url || github.event.pull_request_review.pull_request.head.repo.clone_url || github.event.issue.repository.clone_url }}"
-          git remote set-url origin "$EVENT_CLONE_URL"
-          echo "Set origin to event clone URL: $EVENT_CLONE_URL"
+          if [[ "${{ github.event_name }}" == "issue_comment" && "${{ github.event.issue.pull_request.url }}" != "" ]]; then
+            # For issue comments on PRs, fetch the PR details to get the head repo clone URL
+            PR_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "${{ github.event.issue.pull_request.url }}")
+            EVENT_CLONE_URL=$(echo "$PR_DATA" | jq -r '.head.repo.clone_url')
+            git remote set-url origin "$EVENT_CLONE_URL"
+            echo "Set origin to event clone URL: $EVENT_CLONE_URL"
 
       - name: Run Claude Code
         id: claude
