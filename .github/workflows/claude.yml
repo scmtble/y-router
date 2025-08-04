@@ -25,6 +25,11 @@ jobs:
       id-token: write
       actions: read # Required for Claude to read CI results on PRs
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -32,7 +37,7 @@ jobs:
 
       - name: Set origin to corresponding event clone URL
         run: |
-          EVENT_CLONE_URL="${{ github.event.pull_request.head.repo.clone_url || github.event.pull_request_review_comment.pull_request.head.repo.clone_url || github.event.pull_request_review.pull_request.head.repo.clone_url || github.event.issue.repository.clone_url }}"
+          EVENT_CLONE_URL="${{ github.event.pull_request_review_comment.pull_request.head.repo.clone_url || github.event.pull_request_review.pull_request.head.repo.clone_url || github.event.issue.repository.clone_url }}"
           git remote set-url origin "$EVENT_CLONE_URL"
           echo "Set origin to event clone URL: $EVENT_CLONE_URL"
 
