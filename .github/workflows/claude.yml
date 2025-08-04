@@ -43,6 +43,7 @@ jobs:
             EVENT_CLONE_URL=$(echo "$PR_DATA" | jq -r '.head.repo.clone_url')
             git remote set-url origin "$EVENT_CLONE_URL"
             echo "Set origin to event clone URL: $EVENT_CLONE_URL"
+          fi
 
       - name: Run Claude Code
         id: claude
