@@ -2,6 +2,8 @@
 
 A Cloudflare Worker that translates between Anthropic's Claude API and OpenAI-compatible APIs, enabling you to use Claude Code with OpenRouter and other OpenAI-compatible providers.
 
+> **Note:** This worker is suitable for testing models other than Anthropic. For Anthropic models (especially for intensive usage exceeding $200), consider using [claude-relay-service](https://github.com/Wei-Shaw/claude-relay-service) for better value.
+
 ## Quick Usage
 
 ### One-line Install (Recommended)
